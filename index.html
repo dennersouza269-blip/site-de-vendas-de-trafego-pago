@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <meta name="description" content="Aprenda a criar uma estratégia de tráfego pago com objetivo, público e orçamento bem definidos.">
+  <title>Tráfego com Direção | Ebook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f0e8;
+      --ink: #20231f;
+      --muted: #66685f;
+      --coral: #ef6849;
+      --lime: #d8ec69;
+      --line: #d5d0c5;
+      --display: "Space Grotesk", sans-serif;
+      --body: "DM Sans", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--body);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+
+    .topline {
+      padding: 10px 20px;
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+    header {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--ink);
+      font: 700 17px var(--display);
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 27px;
+      height: 27px;
+      display: grid;
+      place-items: center;
+      background: var(--coral);
+      font: 700 14px var(--display);
+      transform: rotate(-5deg);
+    }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { font-size: 13px; text-decoration: none; }
+    nav a:hover { color: var(--coral); }
+    .nav-cta {
+      padding: 11px 16px;
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 700;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.06fr .94fr;
+      gap: 60px;
+      align-items: center;
+      padding: 76px 0 82px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 20px;
+      color: #a3442e;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 20px; height: 2px; background: var(--coral); content: ""; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 630px;
+      margin-bottom: 22px;
+      font: 700 68px/1.01 var(--display);
+      letter-spacing: 0;
+    }
+    h1 span { color: var(--coral); }
+    .hero-copy {
+      max-width: 500px;
+      margin-bottom: 28px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+    .button {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      padding: 0 20px;
+      border: 0;
+      background: var(--coral);
+      color: #201e1a;
+      font: 700 14px var(--body);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .18s ease, background .18s ease;
+    }
+    .button:hover { background: #f47a5e; transform: translateY(-2px); }
+    .button span { font-size: 20px; line-height: 1; }
+    .microcopy { color: var(--muted); font-size: 12px; }
+    .hero-visual { min-height: 450px; position: relative; }
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 34px 34px;
+      width: calc(100% - 34px);
+      height: calc(100% - 34px);
+      object-fit: cover;
+      filter: saturate(.76);
+    }
+    .book-cover {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 205px;
+      min-height: 255px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--lime);
+      box-shadow: 8px 8px 0 var(--ink);
+      transform: rotate(-4deg);
+    }
+    .book-label { font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .book-cover strong { font: 700 27px/1.02 var(--display); }
+    .book-cover small { font-size: 10px; }
+    .image-note {
+      position: absolute;
+      top: 16px;
+      right: -16px;
+      padding: 10px 13px;
+      background: var(--paper);
+      font: 600 12px var(--display);
+      transform: rotate(3deg);
+    }
+
+    .proof {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .proof-label { max-width: 190px; color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .proof-item { font: 600 14px var(--display); }
+    .proof-item span { display: block; margin-bottom: 5px; color: var(--coral); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+
+    .problem {
+      margin-top: 82px;
+      padding: 76px 0;
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .problem-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; align-items: start; }
+    .problem h2, .section-heading h2, .offer h2 {
+      margin-bottom: 18px;
+      font: 700 43px/1.08 var(--display);
+      letter-spacing: 0;
+    }
+    .problem .eyebrow { color: var(--lime); }
+    .problem-intro { color: #c2c2b9; font-size: 15px; line-height: 1.7; }
+    .problem-list { margin: 0; padding: 0; list-style: none; }
+    .problem-list li {
+      display: flex;
+      gap: 16px;
+      padding: 17px 0;
+      border-bottom: 1px solid #494b45;
+      color: #deded5;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+    .problem-list li::before { color: var(--coral); content: "+"; font: 600 19px var(--display); }
+
+    .method { padding: 88px 0 96px; }
+    .section-heading { max-width: 620px; margin-bottom: 42px; }
+    .section-heading h2 { max-width: 570px; }
+    .section-heading p { color: var(--muted); font-size: 15px; line-height: 1.65; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); }
+    .step { padding: 25px 28px 12px 0; }
+    .step + .step { padding-left: 28px; border-left: 1px solid var(--line); }
+    .step-number { margin-bottom: 30px; color: var(--coral); font: 700 13px var(--display); }
+    .step h3 { margin-bottom: 11px; font: 700 22px var(--display); }
+    .step p { max-width: 290px; margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+
+    .offer {
+      padding: 76px 0;
+      background: var(--lime);
+    }
+    .offer-layout { display: grid; grid-template-columns: 1fr 390px; gap: 68px; align-items: center; }
+    .offer h2 { max-width: 580px; }
+    .offer-copy { max-width: 560px; color: #555b37; font-size: 15px; line-height: 1.65; }
+    .included { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; margin: 25px 0 0; padding: 0; list-style: none; }
+    .included li { display: flex; gap: 10px; font-size: 13px; line-height: 1.5; }
+    .included li::before { color: #a3442e; content: "✓"; font-weight: 700; }
+    .price-box { padding: 28px; background: var(--paper); }
+    .price-label { margin-bottom: 6px; color: var(--muted); font-size: 12px; }
+    .price { margin-bottom: 4px; font: 700 43px var(--display); }
+    .price small { font: 500 15px var(--body); }
+    .price-caption { margin-bottom: 20px; color: var(--muted); font-size: 12px; }
+    .price-box .button { width: 100%; }
+    .checkout-note { margin: 13px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
+
+    .faq { padding: 82px 0 94px; }
+    .faq-layout { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; }
+    .faq h2 { margin: 0; font: 700 39px/1.08 var(--display); }
+    details { border-top: 1px solid var(--line); }
+    details:last-child { border-bottom: 1px solid var(--line); }
+    summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 19px 0;
+      font: 600 15px var(--display);
+      list-style: none;
+      cursor: pointer;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { color: var(--coral); content: "+"; font-size: 20px; }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 600px; margin: -3px 35px 20px 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    footer { padding: 22px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .notice {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 5;
+      max-width: 340px;
+      padding: 15px 18px;
+      background: var(--ink);
+      color: white;
+      font-size: 13px;
+      line-height: 1.5;
+      box-shadow: 4px 4px 0 var(--coral);
+    }
+    .notice[hidden] { display: none; }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr  .88fr; gap: 30px; }
+      h1 { font-size: 56px; }
+      .hero-visual { min-height: 380px; }
+      .problem-layout, .faq-layout { gap: 40px; }
+      .offer-layout { grid-template-columns: 1fr 330px; gap: 34px; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 36px, 500px); }
+      .topline { font-size: 10px; }
+      header { min-height: 66px; }
+      nav { gap: 14px; }
+      nav a:not(.nav-cta) { display: none; }
+      .nav-cta { padding: 10px 12px; font-size: 12px; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding: 54px 0 58px; }
+      h1 { max-width: 480px; font-size: 48px; }
+      .hero-copy { font-size: 15px; }
+      .hero-visual { min-height: 350px; margin-right: 12px; }
+      .hero-photo { inset: 0 0 25px 24px; width: calc(100% - 24px); height: calc(100% - 25px); }
+      .book-cover { width: 168px; min-height: 215px; padding: 16px; }
+      .book-cover strong { font-size: 23px; }
+      .image-note { right: -10px; font-size: 10px; }
+      .proof { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 12px; }
+      .proof-label { max-width: none; grid-column: 1 / -1; }
+      .proof-item { font-size: 12px; }
+      .problem { margin-top: 58px; padding: 56px 0; }
+      .problem-layout, .faq-layout, .offer-layout { grid-template-columns: 1fr; gap: 28px; }
+      .problem h2, .section-heading h2, .offer h2 { font-size: 35px; }
+      .method { padding: 62px 0 68px; }
+      .section-heading { margin-bottom: 28px; }
+      .steps { grid-template-columns: 1fr; }
+      .step, .step + .step { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+      .step-number { margin-bottom: 15px; }
+      .offer { padding: 56px 0; }
+      .included { grid-template-columns: 1fr; }
+      .price-box { padding: 24px; }
+      .faq { padding: 62px 0 70px; }
+      .faq h2 { font-size: 34px; }
+      .footer-inner { flex-direction: column; gap: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">MENOS IMPROVISO. MAIS ESTRATÉGIA PARA CADA REAL INVESTIDO.</div>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#inicio" aria-label="Tráfego com Direção, início">
+        <span class="brand-mark">T</span> TRÁFEGO COM DIREÇÃO
+      </a>
+      <nav aria-label="Navegação principal">
+        <a href="#metodo">O método</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a class="nav-cta" href="#oferta">Ver o ebook <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <p class="eyebrow">Ebook prático para quem anuncia</p>
+          <h1 id="hero-title">Pare de anunciar no <span>escuro.</span></h1>
+          <p class="hero-copy">Descubra como montar uma estratégia de tráfego pago com objetivo, público e orçamento definidos, mesmo que você esteja começando agora.</p>
+          <div class="actions">
+            <a class="button" href="#oferta">Quero anunciar com estratégia <span aria-hidden="true">→</span></a>
+            <span class="microcopy">Leitura prática. Aplicação no seu negócio.</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="Prévia do ebook Tráfego com Direção">
+          <img class="hero-photo" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1100&q=85" alt="Equipe trabalhando em conjunto diante de um quadro de planejamento">
+          <div class="book-cover" aria-label="Capa do ebook: Tráfego com Direção">
+            <span class="book-label">Guia prático · mídia paga</span>
+            <strong>Tráfego<br>com<br>Direção.</strong>
+            <small>Do primeiro anúncio a um plano claro.</small>
+          </div>
+          <span class="image-note">Seu próximo anúncio começa aqui.</span>
+        </div>
+      </section>
+
+      <section class="proof" aria-label="O que você vai organizar">
+        <p class="proof-label">Uma base clara para tomar decisões melhores antes de apertar “publicar”.</p>
+        <div class="proof-item"><span>01 · Clareza</span>Objetivo de campanha</div>
+        <div class="proof-item"><span>02 · Foco</span>Público e oferta</div>
+        <div class="proof-item"><span>03 · Controle</span>Orçamento e análise</div>
+      </section>
+    </main>
+  </div>
+
+  <section class="problem" aria-labelledby="problem-title">
+    <div class="wrap problem-layout">
+      <div>
+        <p class="eyebrow">Se isso parece familiar</p>
+        <h2 id="problem-title">Impulsionar não é o mesmo que ter um plano.</h2>
+        <p class="problem-intro">Sem uma direção, fica difícil saber o que ajustar e por que um anúncio não trouxe o resultado esperado.</p>
+      </div>
+      <ul class="problem-list">
+        <li>Você escolhe o público no palpite e torce para alcançar as pessoas certas.</li>
+        <li>Investe sem saber qual métrica acompanhar ou quando mudar a campanha.</li>
+        <li>Testa formatos e ideias, mas não registra o que funcionou.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="method wrap" id="metodo" aria-labelledby="method-title">
+    <div class="section-heading">
+      <p class="eyebrow">Um caminho mais claro</p>
+      <h2 id="method-title">Estratégia antes do botão de impulsionar.</h2>
+      <p>O ebook organiza os fundamentos em etapas simples para você planejar, lançar e avaliar campanhas com mais intenção.</p>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <p class="step-number">01 / DEFINIR</p>
+        <h3>Comece pelo objetivo</h3>
+        <p>Entenda o que a campanha precisa alcançar e escolha uma ação que faça sentido para o seu negócio.</p>
+      </article>
+      <article class="step">
+        <p class="step-number">02 / PLANEJAR</p>
+        <h3>Fale com as pessoas certas</h3>
+        <p>Organize público, mensagem e oferta antes de decidir como distribuir o investimento.</p>
+      </article>
+      <article class="step">
+        <p class="step-number">03 / APRENDER</p>
+        <h3>Leia os sinais</h3>
+        <p>Acompanhe indicadores relevantes e use o que observar para orientar os próximos testes.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="offer" id="oferta" aria-labelledby="offer-title">
+    <div class="wrap offer-layout">
+      <div>
+        <p class="eyebrow">Seu próximo passo</p>
+        <h2 id="offer-title">Troque o “vamos ver no que dá” por um plano.</h2>
+        <p class="offer-copy">Tenha um guia de consulta para estruturar suas campanhas com mais clareza, seja para divulgar seu próprio negócio ou para dar os primeiros passos como gestor.</p>
+        <ul class="included">
+          <li>Fundamentos de tráfego pago sem complicação</li>
+          <li>Roteiro para planejar uma campanha</li>
+          <li>Orientação para definir público e mensagem</li>
+          <li>Checklist para revisar antes de publicar</li>
+        </ul>
+      </div>
+      <div class="price-box">
+        <p class="price-label">Ebook digital</p>
+        <p class="price">R$ 47<small>,00</small></p>
+        <p class="price-caption">Pagamento único · acesso digital</p>
+        <a class="button checkout-link" href="#oferta">Quero meu ebook <span aria-hidden="true">→</span></a>
+        <p class="checkout-note">Acesso após a confirmação do pagamento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq wrap" id="duvidas" aria-labelledby="faq-title">
+    <div class="faq-layout">
+      <h2 id="faq-title">Dúvidas<br>frequentes.</h2>
+      <div>
+        <details>
+          <summary>Preciso já anunciar para aproveitar o ebook?</summary>
+          <p>Não. O conteúdo foi pensado para ajudar quem está começando a organizar os fundamentos antes de investir em anúncios.</p>
+        </details>
+        <details>
+          <summary>O ebook garante resultados nas minhas campanhas?</summary>
+          <p>Não há garantia de resultado. O desempenho depende de fatores como oferta, público, criativos, orçamento e execução. O material ajuda você a planejar e avaliar melhor esses elementos.</p>
+        </details>
+        <details>
+          <summary>Como recebo o material?</summary>
+          <p>Após a confirmação do pagamento, o ebook é enviado em formato digital. O acesso e o prazo de entrega devem ser confirmados no checkout.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Tráfego com Direção</span>
+      <span>O conhecimento é seu. Os resultados dependem da aplicação.</span>
+    </div>
+  </footer>
+
+  <div class="notice" id="checkout-notice" role="status" aria-live="polite" hidden>O link de pagamento ainda não foi configurado. Adicione a URL do seu checkout para receber pedidos.</div>
+  <script>
+    const checkoutUrl = "https://pay.kiwify.com.br/vcoY7EB";
+    const checkoutNotice = document.querySelector("#checkout-notice");
+
+    document.querySelector("#year").textContent = new Date().getFullYear();
+    document.querySelectorAll(".checkout-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (checkoutUrl) {
+          link.href = checkoutUrl;
+          return;
+        }
+        event.preventDefault();
+        checkoutNotice.hidden = false;
+        window.setTimeout(() => { checkoutNotice.hidden = true; }, 5000);
+      });
+    });
+  </script>
+</body>
+</html>
